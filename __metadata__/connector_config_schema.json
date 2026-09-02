@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.filigran.io/connectors/honeydb_config.schema.json",
+  "type": "object",
+  "properties": {
+    "OPENCTI_URL": {
+      "description": "The base URL of the OpenCTI instance.",
+      "format": "uri",
+      "maxLength": 2083,
+      "minLength": 1,
+      "type": "string"
+    },
+    "OPENCTI_TOKEN": {
+      "description": "The API token to connect to OpenCTI.",
+      "format": "password",
+      "type": "string",
+      "writeOnly": true
+    },
+    "CONNECTOR_NAME": {
+      "default": "HoneyDB",
+      "description": "The name of the connector.",
+      "type": "string"
+    },
+    "CONNECTOR_SCOPE": {
+      "default": [
+        "honeydb"
+      ],
+      "description": "The scope of the connector.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "CONNECTOR_LOG_LEVEL": {
+      "default": "error",
+      "description": "The minimum level of logs to display.",
+      "enum": [
+        "debug",
+        "info",
+        "warn",
+        "warning",
+        "error"
+      ],
+      "type": "string"
+    },
+    "CONNECTOR_TYPE": {
+      "const": "EXTERNAL_IMPORT",
+      "default": "EXTERNAL_IMPORT",
+      "type": "string"
+    },
+    "CONNECTOR_DURATION_PERIOD": {
+      "default": "P1D",
+      "description": "The period of time to await between two runs of the connector.",
+      "format": "duration",
+      "type": "string"
+    },
+    "HONEYDB_API_ID": {
+      "description": "Your HoneyDB API ID (see https://honeydb.io/threats).",
+      "minLength": 1,
+      "type": "string"
+    },
+    "HONEYDB_API_KEY": {
+      "description": "Your HoneyDB API key (see https://honeydb.io/threats).",
+      "format": "password",
+      "type": "string",
+      "writeOnly": true
+    },
+    "HONEYDB_API_BASE_URL": {
+      "default": "https://honeydb.io/api",
+      "description": "Base URL of the HoneyDB API.",
+      "format": "uri",
+      "maxLength": 2083,
+      "minLength": 1,
+      "type": "string"
+    },
+    "HONEYDB_SCORE": {
+      "default": 50,
+      "description": "Score (0-100) applied as `x_opencti_score` on observables and as `confidence` on indicators.",
+      "maximum": 100,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "HONEYDB_TLP_LEVEL": {
+      "default": "clear",
+      "description": "TLP marking for imported data (`clear`, `white`, `green`, `amber`, `amber+strict`, `red`).",
+      "enum": [
+        "clear",
+        "white",
+        "green",
+        "amber",
+        "amber+strict",
+        "red"
+      ],
+      "type": "string"
+    },
+    "HONEYDB_CREATE_INDICATORS": {
+      "default": false,
+      "description": "Whether to also create STIX Indicators (with a `based-on` relationship to each observable).",
+      "type": "boolean"
+    },
+    "HONEYDB_MIN_COUNT": {
+      "default": 1,
+      "description": "Skip hosts with fewer than this many events in the 24-hour window.",
+      "minimum": 1,
+      "type": "integer"
+    },
+    "HONEYDB_INDICATOR_VALID_DAYS": {
+      "default": 7,
+      "description": "Number of days after a host's last-seen date until its indicator expires (`valid_until`).",
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "OPENCTI_URL",
+    "OPENCTI_TOKEN",
+    "HONEYDB_API_ID",
+    "HONEYDB_API_KEY"
+  ],
+  "additionalProperties": true
+}

@@ -1,0 +1,20 @@
+opencti:
+  url: 'http://localhost:8080'
+  token: 'ChangeMe'
+
+connector:
+  id: 'ChangeMe'
+  name: 'HoneyDB'
+  scope: 'honeydb'
+  log_level: 'error'
+  duration_period: 'PT24H'
+
+honeydb:
+  api_id: 'ChangeMe'
+  api_key: 'ChangeMe'
+  #api_base_url: 'https://honeydb.io/api'
+  #score: 50
+  #tlp_level: 'clear'
+  #create_indicators: false
+  #min_count: 1
+  #indicator_valid_days: 7
