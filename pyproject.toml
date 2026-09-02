@@ -1,0 +1,17 @@
+# Repo-local tooling only (not part of the upstream OpenCTI connector copy).
+[tool.ruff]
+target-version = "py312"
+line-length = 88
+extend-exclude = [".venv"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "C4"]
+# Upstream enforces black/isort only; docstrings copied from the OpenCTI
+# template exceed 88 columns and are kept verbatim for parity.
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["B011", "E402"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

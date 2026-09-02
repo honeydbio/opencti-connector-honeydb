@@ -1,0 +1,10 @@
+[
+  {"remote_host": "203.0.113.10", "count": 42, "last_seen": "2026-09-01"},
+  {"remote_host": "2001:db8::1", "count": 7, "last_seen": "2026-09-01"},
+  {"remote_host": "198.51.100.5", "count": 1, "last_seen": "2026-08-31"},
+  {"remote_host": "192.0.2.77", "count": "13", "last_seen": "2026-09-01"},
+  {"remote_host": "not-an-ip", "count": 9, "last_seen": "2026-09-01"},
+  {"remote_host": "203.0.113.99", "count": 3, "last_seen": "yesterday"},
+  {"remote_host": "203.0.113.100", "count": "many", "last_seen": "2026-09-01"},
+  {"remote_host": "203.0.113.101", "last_seen": "2026-09-01"}
+]

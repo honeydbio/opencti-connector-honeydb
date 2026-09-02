@@ -1,0 +1,26 @@
+{
+  "title": "HoneyDB",
+  "slug": "honeydb",
+  "description": "HoneyDB is a community-driven honeypot sensor network that publishes threat intelligence about hosts attacking the internet. Sensors run by the community report every connection they receive, and the aggregated \"bad hosts\" list names the IP addresses seen attacking in the trailing 24 hours.\n\nThis connector fetches the HoneyDB bad-hosts list once per period and imports each host into OpenCTI as an IPv4/IPv6 observable attributed to a HoneyDB identity, with an external reference to the host's HoneyDB page, configurable TLP marking and score. Optionally it also creates a STIX indicator per host with a `based-on` relationship to the observable; indicators expire a configurable number of days after the host was last seen.",
+  "short_description": "Imports the HoneyDB bad-hosts list into OpenCTI as IPv4/IPv6 observables and optional STIX indicators, with HoneyDB attribution, external references, TLP markings and configurable score.",
+  "logo": "external-import/honeydb/__metadata__/logo.png",
+  "use_cases": [
+    "Infrastructure & Attack Surface Visibility"
+  ],
+  "solution_categories": [
+    "Threat Intelligence Feed"
+  ],
+  "license_type": "Free",
+  "contact": "support@deceptionlogic.com",
+  "verified": false,
+  "last_verified_date": null,
+  "playbook_supported": false,
+  "max_confidence_level": 50,
+  "support_version": ">=6.8.12",
+  "subscription_link": "https://honeydb.io/threats",
+  "source_code": "https://github.com/OpenCTI-Platform/connectors/tree/master/external-import/honeydb",
+  "manager_supported": true,
+  "container_version": "rolling",
+  "container_image": "opencti/connector-honeydb",
+  "container_type": "EXTERNAL_IMPORT"
+}

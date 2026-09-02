@@ -1,0 +1,25 @@
+version: "3"
+services:
+  connector-honeydb:
+    image: opencti/connector-honeydb:latest
+    environment:
+      # Connector's generic execution parameters
+      - OPENCTI_URL=http://localhost
+      - OPENCTI_TOKEN=ChangeMe
+      # Connector's definition parameters REQUIRED
+      - CONNECTOR_ID=ChangeMe
+      - CONNECTOR_NAME=HoneyDB
+      - CONNECTOR_SCOPE=honeydb
+      - CONNECTOR_LOG_LEVEL=error
+      # - CONNECTOR_DURATION_PERIOD=PT24H # ISO8601 format in String, start with 'P...' for Period
+
+      # Connector's custom execution parameters
+      - HONEYDB_API_ID=ChangeMe
+      - HONEYDB_API_KEY=ChangeMe
+      # - HONEYDB_API_BASE_URL=https://honeydb.io/api
+      # - HONEYDB_SCORE=50
+      # - HONEYDB_TLP_LEVEL=clear
+      # - HONEYDB_CREATE_INDICATORS=false
+      # - HONEYDB_MIN_COUNT=1
+      # - HONEYDB_INDICATOR_VALID_DAYS=7
+    restart: always
